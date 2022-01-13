@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.11.30)  13 JAN 2022 14:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.11.30)  13 JAN 2022 17:02
 entering extended mode
 **./Beleg.tex
 (Beleg.tex
@@ -830,7 +830,8 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 (Beleg.aux (recommand.aux) (Titelseite.aux) (Kurzfassung.aux)
 (Selbststaendigkeitserklaerung.aux) (Symbolverzeichnis.aux)
-(Abkuerzungsverzeichnis.aux) (Kapitel1.aux) (Anhang1.aux))
+(Abkuerzungsverzeichnis.aux) (Kapitel1.aux) (Zusammenfassung.aux)
+(AnhangDoxygen.aux))
 \openout1 = `Beleg.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
@@ -1132,9 +1133,6 @@ Class scrbook Warning: \float@addtolists detected!
 (scrbook)              a package that still implements the
 (scrbook)              deprecated \float@addtolist interface.
 
-
-LaTeX Warning: Reference `Empirisch_A' on page 1 undefined on input line 9.
-
 )pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
  been already used, duplicate ignored
 <to be read again> 
@@ -1147,40 +1145,65 @@ l.33 \include{Kapitel1}
 
 
 ]
-\openout2 = `Anhang1.aux'.
+\openout2 = `Zusammenfassung.aux'.
+
+ (Zusammenfassung.texpdfTeX warning (ext4): destination with the same identifie
+r (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1 \chapter
+            {Zusammenfassung} [2
 
 
-No file Anhang1.tex.
+
+
+
+]
+chapter 2.
+)pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.34 \include{Zusammenfassung}
+                               [3]
+\openout2 = `AnhangDoxygen.aux'.
+
+ (AnhangDoxygen.tex [4
+
+
+
+
+
+]
+chapter A.
+) [5]
 No file Beleg.bbl.
 (Beleg.aux (recommand.aux) (Titelseite.aux) (Kurzfassung.aux)
 (Selbststaendigkeitserklaerung.aux) (Symbolverzeichnis.aux)
-(Abkuerzungsverzeichnis.aux) (Kapitel1.aux) (Anhang1.aux))
-
-LaTeX Warning: There were undefined references.
-
+(Abkuerzungsverzeichnis.aux) (Kapitel1.aux) (Zusammenfassung.aux)
+(AnhangDoxygen.aux))
 Package rerunfilecheck Info: File `Beleg.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21578 strings out of 478868
- 410167 string characters out of 2846912
- 857206 words of memory out of 3000000
- 39042 multiletter control sequences out of 15000+600000
- 464265 words of font info for 61 fonts, out of 8000000 for 9000
+ 21589 strings out of 478868
+ 411375 string characters out of 2846912
+ 858866 words of memory out of 3000000
+ 39041 multiletter control sequences out of 15000+600000
+ 458502 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,10n,108p,10621b,857s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.en
 c}<C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx1
-0.pfb><C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/l
-mbx12.pfb><C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-lm/lmcsc10.pfb><C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/lm/lmr10.pfb><C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/lm/lmr12.pfb><C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/lm/lmri12.pfb><C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX/font
-s/type1/public/lm/lmssbx10.pfb>
-Output written on Beleg.pdf (13 pages, 320920 bytes).
+2.pfb><C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/l
+mcsc10.pfb><C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/lm/lmr10.pfb><C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/lm/lmr12.pfb><C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/lm/lmri12.pfb><C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/lm/lmssbx10.pfb>
+Output written on Beleg.pdf (17 pages, 305622 bytes).
 PDF statistics:
- 149 PDF objects out of 1000 (max. 8388607)
- 25 named destinations out of 1000 (max. 500000)
- 75 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 176 PDF objects out of 1000 (max. 8388607)
+ 29 named destinations out of 1000 (max. 500000)
+ 107 words of extra memory for PDF output out of 10000 (max. 10000000)
 
