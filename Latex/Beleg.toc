@@ -1,0 +1,10 @@
+\babel@toc {ngerman}{}\relax 
+\contentsline {chapter}{Inhaltsverzeichnis}{I}{chapter*.3}%
+\contentsline {chapter}{Abbildungsverzeichnis}{III}{chapter*.4}%
+\contentsline {chapter}{Verzeichnis der Beispiele}{V}{chapter*.5}%
+\contentsline {chapter}{Symbolverzeichnis}{VI}{chapter*.5}%
+\contentsline {chapter}{Abkürzungsverzeichnis}{IX}{chapter*.7}%
+\contentsline {chapter}{\numberline {1}Titel von Kapitel 1}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}These A}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}These B}{1}{section.1.2}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
