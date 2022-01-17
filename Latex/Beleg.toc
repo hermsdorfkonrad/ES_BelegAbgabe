@@ -1,14 +1,14 @@
-\babel@toc {ngerman}{}\relax 
+\babel@toc {ngerman}{}
 \contentsline {chapter}{Inhaltsverzeichnis}{I}{chapter*.3}%
 \contentsline {chapter}{Abbildungsverzeichnis}{III}{chapter*.4}%
 \contentsline {chapter}{Verzeichnis der Beispiele}{V}{chapter*.5}%
 \contentsline {chapter}{Symbolverzeichnis}{VI}{chapter*.5}%
 \contentsline {chapter}{Abkürzungsverzeichnis}{IX}{chapter*.7}%
 \contentsline {chapter}{\numberline {1}Umsetzung des Projektes}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Anbindung der Peripherie an den Mikrocontroller}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Einrichtung der Programmierumgebung}{1}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Programmstruktur}{1}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Automatische Maschinencodeerstellung mittels Makefile}{1}{section.1.4}%
+\contentsline {section}{\numberline {1.1}Komponenten und Aufbau}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Einrichtung der Programmierumgebung}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Programmstruktur}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Automatische Maschinencodeerstellung mittels Makefile}{2}{section.1.4}%
 \contentsline {chapter}{\numberline {2}Zusammenfassung}{3}{chapter.2}%
 \contentsline {chapter}{\numberline {A}Doxygen-Dokumentation}{5}{appendix.A}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
