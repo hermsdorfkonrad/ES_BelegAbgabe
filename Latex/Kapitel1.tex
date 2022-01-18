@@ -20,12 +20,34 @@ Abbildung \ref{fig:Aufbau} zeigt den Aufbau des Projektes.
 \label{fig:Aufbau}
 \end{figure}
 
+Die nachfolgende Tabelle listet die Pinbelegung des Arduino Micro in diesem Projekt. Die Massepins und Versorgungsspannungen wurde für bessere Übersichtlichkeit ausgelassen.
+
+\begin{table}[H]
+\begin{center}
+\caption{Pinbelegung}
+\begin{tabular}{|c|c|}
+\hline 
+Komponente & Pin am Arduino \\ 
+\hline
+\hline 
+Joystick 1 - Teilerspannung & A5 \\ 
+\hline 
+Joystick 2 - Teilerspannung & A0 \\ 
+\hline 
+Display - I2C SDA & D2 \\ 
+\hline 
+Display - I2C SCL & D3 \\ 
+\hline 
+\end{tabular}
+\end{center}
+\end{table}
 %Pinout nennen
 
 \section{Entwicklungsumgebung}
 \label{sec:IDE}
 Die zur Programmierung des ATmega32U4 unter Linux Ubuntu notwendigen Programme werden mittels Paketverwaltung \glqq apt\grqq\ installiert:
 \begin{itemize}
+\setlength\itemsep{-0.5em}
 \item Es wird der ATmega-kompatible C-Compiler \glqq avr-gcc\grqq\ genutzt.
 \item Für den Flash-Vorgang ist die Programmiersoftware \glqq avrdude\grqq\ notwendig.
 \item Die automatische Kompilation und das Linken wird durch die Software \glqq Make\grqq\ verwaltet. Dazu wird ein sog. \glqq Makefile\grqq\ erstellt (siehe Abschnitt \ref{sec:Make}).

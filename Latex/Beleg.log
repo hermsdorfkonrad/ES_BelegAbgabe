@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.11.30)  17 JAN 2022 22:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.11.30)  18 JAN 2022 11:44
 entering extended mode
 **./Beleg.tex
 (Beleg.tex
@@ -1138,7 +1138,7 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 9
 (C:\Users\Terrabyte\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<./Bilder/Aufbau.jpg, id=92, 2795.19281pt x 1469.49pt>
+<./Bilder/Aufbau.jpg, id=94, 2795.19281pt x 1469.49pt>
 File: ./Bilder/Aufbau.jpg Graphic file (type jpg)
 <use ./Bilder/Aufbau.jpg>
 Package pdftex.def Info: ./Bilder/Aufbau.jpg  used on input line 18.
@@ -1147,43 +1147,45 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.29 \item E
-            s wird der ATmega-kompatible C-Compiler \glqq avr-gcc\grqq\ genu...
-[1
+l.24 
+      [1
 
 
 
 
 
  <./Bilder/Aufbau.jpg>]
-<./Bilder/Code.png, id=100, 1391.1975pt x 810.02625pt>
+<./Bilder/Code.png, id=102, 1391.1975pt x 810.02625pt>
 File: ./Bilder/Code.png Graphic file (type png)
 <use ./Bilder/Code.png>
-Package pdftex.def Info: ./Bilder/Code.png  used on input line 38.
+Package pdftex.def Info: ./Bilder/Code.png  used on input line 60.
 (pdftex.def)             Requested size: 441.01773pt x 256.77878pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.49 
-      [2 <./Bilder/Code.png>])pdfTeX warning (ext4): destination with the same 
-identifier (name{page.3}) has been already used, duplicate ignored
+l.63 
+      [2])pdfTeX warning (ext4): destination with the same identifier (name{pag
+e.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.33 \include{Kapitel1}
-                       						% Fügt Kapitel hinzu [3]
+                       						% Fügt Kapitel hinzu [3 <./Bilder/Code.png>]
+[4]
 \openout2 = `Zusammenfassung.aux'.
 
  (Zusammenfassung.tex
-[4
+chapter 2.
+) [5
 
 
 
 
 
 ]
-chapter 2.
-) [5]
 \openout2 = `AnhangDoxygen.aux'.
 
  (AnhangDoxygen.tex [6
@@ -1202,13 +1204,13 @@ Package rerunfilecheck Info: File `Beleg.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21647 strings out of 478868
- 412715 string characters out of 2846912
- 860936 words of memory out of 3000000
- 39089 multiletter control sequences out of 15000+600000
+ 21652 strings out of 478868
+ 412792 string characters out of 2846912
+ 860947 words of memory out of 3000000
+ 39093 multiletter control sequences out of 15000+600000
  458867 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,10n,108p,10621b,870s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 108i,10n,108p,10621b,857s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.en
 c}{C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-maths
 y.enc}{C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-t
@@ -1221,9 +1223,9 @@ ype1/public/lm/lmri12.pfb><C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/lm/lmro10.pfb><C:/Users/Terrabyte/AppData/Local/Programs/MiKTeX
 /fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Terrabyte/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
-Output written on Beleg.pdf (19 pages, 3631968 bytes).
+Output written on Beleg.pdf (19 pages, 3633380 bytes).
 PDF statistics:
- 212 PDF objects out of 1000 (max. 8388607)
- 33 named destinations out of 1000 (max. 500000)
+ 214 PDF objects out of 1000 (max. 8388607)
+ 34 named destinations out of 1000 (max. 500000)
  117 words of extra memory for PDF output out of 10000 (max. 10000000)
 
