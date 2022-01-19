@@ -3,7 +3,7 @@
 \label{sec:Peri}
 Das Projekt wird auf einem Arduino Micro umgesetzt. Dieser ist ein Entwicklerboard, basierend auf dem Mikrocontroller ATmega32U4. Er wird mit 16MHz getaktet und 5V betrieben. Der Programmspeicher umfasst 32KB. Weiterhin besitzt der Controller 2.5KB SRAM als Arbeitsspeicher sowie 1KB EEPROM für dauerhaftes Speichern von Werten.
 Die Steuerung des Spiels erfolgt über Joysticks, dessen Position über Potentiometer in eine Spannung abgebildet wird. 
-Die Anzeige erfolgt über ein 4-Zeilen Display (Modell 2004) mit parallelem Interface. Ein FC-113 I2C-Brückenchip wandelt die seriell über I2C gesendeten Displaykommandos in das parallel Interface um. Das Programm wird mittels Programmer EvUSBasp auf den Controller geladen. Im Folgenden sind die verwendeten Komponenten aufgezählt:
+Die Anzeige erfolgt über ein 4-Zeilen Display (Modell 2004) mit parallelem Interface. Ein FC-113 I2C-Brückenchip wandelt die seriell über I2C gesendeten Displaykommandos in das parallel Interface um. Das Programm wird mittels Programmer EvUSBasp auf den Controller geladen. Im Folgenden sind die wichtigsten verwendeten Komponenten aufgezählt:
 \begin{itemize}
 \setlength\itemsep{-0.5em}
 \item Arduino Micro
@@ -45,7 +45,7 @@ Display - I2C SCL & D3 \\
 
 \section{Entwicklungsumgebung}
 \label{sec:IDE}
-Die zur Programmierung des ATmega32U4 unter Linux Ubuntu notwendigen Programme werden mittels Paketverwaltung \glqq apt\grqq\ installiert:
+Die zur Programmierung des ATmega32U4 unter Ubuntu Linux notwendigen Programme werden mittels Paketverwaltung \glqq apt\grqq\ installiert:
 \begin{itemize}
 \setlength\itemsep{-0.5em}
 \item Es wird der ATmega-kompatible C-Compiler \glqq avr-gcc\grqq\ genutzt.
@@ -61,13 +61,87 @@ Die zur Programmierung des ATmega32U4 unter Linux Ubuntu notwendigen Programme w
 \caption{Oberfläche von Visual Studio Code}
 \end{figure}
 
-
 \section{Programmstruktur}
-\label{sec:Prog}
+\subsection{Funktionsumfang}
+\label{sec:Funktionsumfang}
 Das Programm lässt sich grob in die Aufgabenbereiche Spielschleife, Zeichenroutinen und Verwaltung der Peripherie einteilen. Nach einer anfänglichen Initialisierungsphase, wird in der Spielschleife zyklisch die Position der Joysticks über den ADC-Wert abgefragt. Dieser Wert wird genutzt, um die Position der Ankerpunkte der Schläger im nächsten Bild zu berechnen. Bei Berechnung der Ballposition wird beachtet, ob der Ball hinter einem Schläger gelandet ist oder eine Wand berührt hat in erstem Fall wird eine Siegesnachricht angezeigt, in letzterem Fall die y-Richtung des Balls umgekehrt. Bei Berührung eines Schlägers wird die x-Richtung umgekehrt.\\
 Die Größe der Bewegung je Bild für Ball und Schläger wird außerdem proportional zur verstrichenen Zeit zwischen zwei Bildern festgelegt. Dazu wird Timer 1 des ARmega32U4 zur Auslösung einer Interrupt-Service-Routine eingesetzt, welche eine Variable inkrementiert, die die Verstrichenen Mikrosekunden seit Timer-Start speichert.\\
 Die Ansteuerung des Displays erfolgt über den Laborunterlagen entnommenen Programmcode. Dieser erlaubt die Programmierung eigener Schriftzeichen im Display. Das wurde genutzt um je Displayzeile 4 verschiedene Schlägerpositionen darstellen zu können.
-Eine ausführliche Dokumentation aller Funktionen findet sich im Anhang \ref{cha:Doxy} in Form einer Doxygen-generierten Quelltextbeschreibung.
+Eine ausführliche Dokumentation aller Funktionen findet sich im Anhang \ref{cha:Doxy} in Form einer Doxygen-generierten Quelltextbeschreibung. Der Ablauf des Programms ist vereinfacht in Abbildung \ref{fig:PAP} unter Vernachlässigung der Wartezeiten und Übergabewerte der Funktionen dargestellt.
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.8\textheight]{./Bilder/Programmablauf.pdf}
+\centering\caption{Vereinfachter Ablauf des Programmes}
+\label{fig:PAP}
+\end{figure}
+
+\subsection{Modularisierung des Codes}
+\label{sec:Modularisierung}
+Um die Wartbarkeit des Codes zu erhöhen, wird die Funktionalität in mehrere Teilfunktionen ausgelagert, welche wiederum thematisch in einzelne Quelltextdateien einsortiert werden. 
+Tabelle \ref{tab:Code} listet die Quelltextdateien und deren Inhalt. Sofern eine zur Headerdatei zugehörige \texttt{.c}-Datei existiert, bezieht sich die Tabelle auf beide Dateien.
+
+\begin{center}
+\begin{table}[H]
+\caption{Inhalt der Quelltextdateien}
+\label{tab:Code}
+\end{table}
+\begin{longtable}{|p{0.2\textwidth}|p{0.7\textwidth}|}
+\hline 
+Quelltextdatei & Inhalt \\ 
+\hline 
+\hline
+\texttt{main.c} & 	\begin{itemize}
+					\setlength\itemsep{-0.5em}
+					\item Initialisierung des Timers,Peripherie und Spielvariablen
+					\item Pong-Dauerschleife
+					\end{itemize} 
+\\ 
+\hline 
+\texttt{config.h} &	\begin{itemize}
+					\setlength\itemsep{-0.5em}
+					\item Präprozessormakros zur Konfiguration des Spiels
+					\item Adressen für Pins und Displayspeicher
+					\end{itemize} 
+\\ 
+\hline 
+\texttt{pong.h} &	\begin{itemize}
+					\setlength\itemsep{-0.5em}
+					\item Strukturvariablen für Ball und Schläger
+					\item Routinen zum Zeichnen des Spiels und Berechnen des Spielgeschehens
+					\end{itemize} 
+\\ 
+\hline 
+\texttt{customFont.h} &	\begin{itemize}
+					\setlength\itemsep{-0.5em}
+					\item Bitmuster der selbstdefinierten Zeichen für das Display
+					\end{itemize} 
+\\ 
+\hline 
+\texttt{misc.h} &	\begin{itemize}
+					\setlength\itemsep{-0.5em}
+					\item Funktionen zum Hochladen und Ausgeben der selbstdefinierten Zeichen auf das Display
+					\item ADC-Initialisierung und -Lesevorgang
+					\item Timer-Setup und zugehörige Interrupt-Service-Routine
+					\end{itemize} 
+\\ 
+\hline
+\texttt{i2clcd.h} &	\begin{itemize}
+					\setlength\itemsep{-0.5em}
+					\item bereitgestellter Quelltext
+					\item Grundlegende Routinen zum Ansteuern des Displays mit I2C-Expander
+					\end{itemize} 
+\\ 
+\hline 
+\texttt{twimaster.h} &	\begin{itemize}
+					\setlength\itemsep{-0.5em}
+					\item bereitgestellter Quelltext
+					\item Routinen zur Kommunikation mit einem I2C-Slave, wie dem Display
+					\end{itemize} 
+\\ 
+\hline 
+\end{longtable}
+\end{center}
 
 \section{Automatische Maschinencodeerstellung mittels Makefile}
 \label{sec:Make}
