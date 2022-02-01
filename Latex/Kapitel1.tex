@@ -145,7 +145,94 @@ Quelltextdatei & Inhalt \\
 
 \section{Automatische Maschinencodeerstellung mittels Makefile}
 \label{sec:Make}
+Das Übersetzen des Projekts wird durch Make gesteuert. Make selbst
+wird mithilfe eines sogenannten \textquotedbl Makefile\textquotedbl{}
+parametriert. Das Makefile definiert allgemein betrachtet Regeln,
+nach denen die Buildreihenfolge festgelegt wird. Genauer handelt es
+sich bei den Regeln um Abhängigkeiten. Anhand der in den Regeln beschriebenen
+Abhängigkeiten weiß Make, welche Dateien für den Buildvorgang zu welchem
+Zeitpunkt verfügbar sein müssen.
 
+Darüber hinaus prüft Make auch die Zeitstempel der Quelldateien und
+stellt auf diesem Weg sicher, dass nur die Quelldateien (erneut) übersetzt
+werden, welche sich seit dem letzten Build geändert haben. Diese Funktion
+macht den Buildvorgang in der Praxis deutlich effizienter.
+
+\subsection*{Funktionen des Makefile}
+
+Im Makefile des Projekts sind die wichtigsten Funktionen für den praktischen
+Einsatz implementiert. 
+\begin{lyxcode}
+make
+
+make~all
+\end{lyxcode}
+Durch einfaches ausführen von make im Projektverzeichnis wird das
+gesamte Projekt durch den avr-gcc übersetzt und verlinkt. Dabei wird
+eine {*}.elf Datei der Firmware und ein Speicherabbild für den Mikrocontroller
+erstellt. Weiterhin wird das Abbild des EEPROM-Inhalts generiert,
+dieser ist in diesem Projekt jedoch leer.
+\begin{lyxcode}
+make~program
+\end{lyxcode}
+Durch make program wird das erstellte Speicherabbild direkt mithilfe
+des USB Flash Programmers in den Flash Speicher des Mikrocontrollers
+geschrieben. Es ist nicht erforderlich zuerst make und anschließend
+make program auszuführen.
+\begin{lyxcode}
+make~size
+\end{lyxcode}
+Ausgabe der Speicherabbildgrößen um zu bestimmen, dass die Firmware
+in den Speicher des Mikrocontrollers passt beziehungsweise wieviel
+Speicherplatz noch bleibt für weitere Funktionen.
+\begin{lyxcode}
+make~clean
+\end{lyxcode}
+Um das Projektverzeichnis von temporären Dateien und Build-Artefakten
+zu bereinigen wird make clean ausgeführt. Dabei werden einerseits
+die Verzeichnisse mit den Objektdateien und Binaries gelöscht, andererseits
+werden auch die intermediären Dateien vom Übersetzen der in Latex
+verfassten Dokumendation entfernt.
+\begin{lyxcode}
+make~infos
+\end{lyxcode}
+Für das Projekt an sich erfüllt make infos keinen Zweck. Es dient
+lediglich als Target für Test- und Debuggingzwecke des Makefile selbst.
+Der Entwickler hat auf diesem Weg die Möglichkeit erstellte Variablenlisten
+auszugeben die Expansion neu angelegter Variablen zu untersuchen.
+
+\subsection*{Aufbau des Makefile}
+
+Das Makefile ist grob in drei Abschnitte unterteilt, wobei der erste
+Abschnitt Variablen und Konstanten beinhaltet. Der zweite Abschnitt
+enthält die Regeln zur Bestimmung der Abhängigkeiten und allgemein
+zur Steuerung des Buildprozesses. Im letzten Abschnitt befinden sich
+die PHONY Targets, also die ``Funktionen'' des Makefile, welche
+explizit vom Nutzer ausgeführt werden (clean, size, ...).
+
+Allgemein werden im ersten Abschnitt Einstellungen wie das verwendete
+Chip-Modell und dessen Taktfrequenz , der verwendete Compiler und
+Linker, sowie die Optionen, welche ihnen übergeben werden, vorgenommen.
+Darauf folgen grundlegende Einstellungen zum Aufbau des Projektverzeichnisses
+gefolgt von Variablen zur Erfassung der Daten im Projektverzeichnis.
+
+Die Regeln zur Bestimmung der Abhängigkeiten basieren auf den für
+Make typischen ``automatischen Variablen'', wobei beispielsweise
+für jede C-Quelldatei eine Objektdatei angelegt wird. Durch Benutzung
+der automatischen Variablen wird auch erreicht, dass Make die Quelldateien
+in der richtigen Reihenfolge übersetzt, sodass sichergesetellt ist,
+dass bei der Übersetzung einer jeden C-Quelldatei die dafür notwendigen
+Objektdateien bereits vorliegen. Um die Übersichtlichkeit zu wahren,
+werden die Dateien, die nur temporär zum Build benötigt werden, in
+das Unterverzeichnis ``build'' gelegt. Des Weiteren werden die Ausgabedateien
+in das Unterverzeichnis ``bin'' gelegt.
+
+Wenngleich die Erstellung der Dokumentation nicht innerhalb des Makefile
+realisiert wurde, obwohl auch dies kein Problem darstellt, enthält
+das Makefile noch einige Variablen zur Erfassung der Build-Artefakte
+der Latex Dokumentation. Mithilfe dieser Variablen kann der make clean
+Befehl auch das Unterverzeichnis ``doc'' von temporären Dateien
+befreien und so das gesamte Projektverzeichnis sauber halten.
 
  
 
